@@ -1,14 +1,14 @@
-/*******************************************************************************************************
-Описание: Файл работы с USART
+/***************************************************************************************************
+Описание: Прием и передача данных по USART по SysTick
 Разработчик: Хомутов Евгений
 Заметки:
-*******************************************************************************************************/
+***************************************************************************************************/
 #include <stm32f10x_usart.h>
 #include <stm32f10x_gpio.h>
 #include <stm32f10x_rcc.h>
-#include "systick/systick.h"
 #include <misc.h>
 #include <string.h>
+#include <stdint.h>
 #include <stdbool.h>
 #include <math.h>
 #include "debug/debug.h"
@@ -31,6 +31,15 @@
 #define MAX_SPEED 2047
 #define MIN_SPEED -2048
 
+/**************************************************************************************************
+Систик совершает прерывания с частотой 72МГц/SYSTICK_PRESCALER, для того чтоб прерывания выполнялись 
+каждую 1мс SYSTICK_PRESCALER = 72МГц/72кГц = 1000.
+Для модуляции в протеусе: необходимо домножить SYSTICK_PRESCALER на 72МГц/(частота МК в протеусе), 
+для того, чтобы в протеусе прерывания также соверщались каждую 1мс. 
+В данном случае частота в протеусе 1МГц
+***************************************************************************************************/
+#define SYSTICK_PRESCALER 1000
+
 /***************************************************************************************************
 Локальные типы данных
 ***************************************************************************************************/
@@ -39,25 +48,42 @@
 Прототипы локальных функций
 ***************************************************************************************************/
 void initUartPins( void );
-void clear_rx_buffer(void);
+void clearRxBuf(void);
 
 /***************************************************************************************************
 Локальные переменные файла
 ***************************************************************************************************/
-static bool RX_FLAG_END_LINE = 0;
+static bool rxFlagEndLine = 0;
+static bool startSetTask = 0;
 static char RXi;
 static char RXc;
-static char RX_BUF[RX_BUF_SIZE] = {'\0'};
-// volatile char buffer[80] = {'\0'};
+static char rxBuf[RX_BUF_SIZE] = {'\0'};
+const char speedRequest[] = "Enter speed:'+xxxx' or '-xxxx':";
 
 static int16_t userSpeed = 0;
-char curSpeedStr[] = "+0000";
+static char curSpeedStr[] = "+0000";
+
+static volatile uint32_t timeStampMs = 0;
 
 /***************************************************************************************************
 Прототипы локальных функций
 ***************************************************************************************************/
+void initUartPins( void );
 
-/**************************************************************************************************
+void systickStart( void );
+void systickStop( void );
+bool delayMs(uint32_t delay);
+
+void clearRxBuf( void ) ;
+bool checkRxFlag ( void );
+void resetRxFlag ( void );
+
+void checkTaskSpeed ( void );
+
+void intToStr( int16_t value, char buf[]);
+int32_t strToInt( char *s );
+
+/***************************************************************************************************
 Описание: Инициализация выводов в режим TX и RX
 Аргументы: Нет
 Возврат:   Нет
@@ -79,109 +105,83 @@ void initUartPins( void )
 }
 
 /***************************************************************************************************
-Глобальные функции
+Описание: Временная задержка по SysTick
+Аргументы: delay - время задержки в мс
+Возврат: true - прошло заданное время, false - нет
+Замечания: 
 ***************************************************************************************************/
 
-/**************************************************************************************************
-Описание: Инициализация USART1
+bool delayMs(uint32_t delay)
+{
+    
+    if ( timeStampMs < delay )
+    {
+        return false;
+    }
+    else
+    {
+        timeStampMs = 0;
+        return true;
+    }
+}
+
+  /*************************************************************************************************
+Описание: Остановка таймера SysTick
 Аргументы: Нет
 Возврат:   Нет
 Замечания: 
 ***************************************************************************************************/
-void init_link_pc_uart( void )
+
+void systickStop( void )
 {
-	PC_LINK_UART_RCC_CMD(ENABLE);
-	
-	initUartPins();
-	
-	// конфигурирование UART
-	USART_InitTypeDef uartInitStruct;
-	USART_StructInit( &uartInitStruct );
-	uartInitStruct.USART_BaudRate = PC_LINK_UART_BR;
-	uartInitStruct.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
-	USART_Init( PC_LINK_UART, &uartInitStruct );
-	
-    // настройка приоритета прерываний UART
- 	NVIC_InitTypeDef nvicInitStruct;
- 	nvicInitStruct.NVIC_IRQChannel = USART1_IRQn;
- 	nvicInitStruct.NVIC_IRQChannelCmd = ENABLE;
- 	nvicInitStruct.NVIC_IRQChannelPreemptionPriority = 1;
- 	nvicInitStruct.NVIC_IRQChannelSubPriority = 0;
- 	NVIC_Init( &nvicInitStruct );
-    
-    // запуск USART1
-	USART_Cmd( PC_LINK_UART, ENABLE );
-    USART_ITConfig( PC_LINK_UART, USART_IT_RXNE, ENABLE);
-	
-	// подключение DMA к USART1
-	USART_DMACmd( PC_LINK_UART, USART_DMAReq_Tx, ENABLE );
-	
-	// запуск DMA
-	RCC_AHBPeriphClockCmd( RCC_AHBPeriph_DMA1, ENABLE );
+    SysTick->CTRL &= ~SysTick_CTRL_ENABLE;
 }
 
-
-/**************************************************************************************************
-Описание: Отправка по UART на компьютер
-Аргументы: buf - массив символов, то что отправляем, len - длина массива
+/***************************************************************************************************
+Описание: Запуск таймера SysTick
+Аргументы: Нет
 Возврат:   Нет
 Замечания: 
 ***************************************************************************************************/
-void send_to_pc( char* buf, uint32_t len )
+
+void systickStart( void )
 {
-	DMA_DeInit( DMA1_Channel4 );
-	
-	DMA_InitTypeDef dmaInitStruct;
-	DMA_StructInit( &dmaInitStruct );
-	dmaInitStruct.DMA_BufferSize = len;
-	dmaInitStruct.DMA_MemoryBaseAddr = (uint32_t) buf;
-	dmaInitStruct.DMA_DIR = DMA_DIR_PeripheralDST;
-	dmaInitStruct.DMA_M2M = DMA_M2M_Disable;
-	dmaInitStruct.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte;
-	dmaInitStruct.DMA_MemoryInc = DMA_MemoryInc_Enable;
-	dmaInitStruct.DMA_Mode = DMA_Mode_Normal;
-	dmaInitStruct.DMA_PeripheralBaseAddr = (uint32_t) &(PC_LINK_UART->DR);
-	dmaInitStruct.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;
-	dmaInitStruct.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
-	DMA_Init( DMA1_Channel4, &dmaInitStruct );
-	
-	DMA_Cmd( DMA1_Channel4, ENABLE );
+    SysTick->CTRL |= SysTick_CTRL_ENABLE;
 }
 
-/**************************************************************************************************
+/***************************************************************************************************
 Описание: Освобождение буфера UART
 Аргументы: Нет
 Возврат:   Нет
 Замечания: 
 ***************************************************************************************************/
-void clear_rx_buffer( void ) 
+void clearRxBuf( void ) 
 {
     for (RXi=0; RXi<RX_BUF_SIZE; RXi++)
-        RX_BUF[RXi] = '\0';
+        rxBuf[RXi] = '\0';
     RXi = 0;
 }
 
- 
-/**************************************************************************************************
+/***************************************************************************************************
 Описание: Чтение флага завершения приема сообщения
 Аргументы: Нет
-Возврат:   Нет
+Возврат:   true - по UART пришел байт, false - буфер приемника пуст
 Замечания: 
 ***************************************************************************************************/
-bool check_rx_flag ( void )
+bool checkRxFlag ( void )
 {
-    return RX_FLAG_END_LINE;
+    return rxFlagEndLine;
 }
 
-/**************************************************************************************************
+/***************************************************************************************************
 Описание: Сброс флага завершения приема сообщения
 Аргументы: Нет
 Возврат:   Нет
 Замечания: 
 ***************************************************************************************************/
-void reset_rx_flag ( void )
+void resetRxFlag ( void )
 {
-    RX_FLAG_END_LINE = false;
+    rxFlagEndLine = false;
 }
 
  /**************************************************************************************************
@@ -190,7 +190,7 @@ void reset_rx_flag ( void )
 Возврат:   Нет
 Замечания: 
 ***************************************************************************************************/
-int32_t str_to_int( char *s )
+int32_t strToInt( char *s )
 {
   int32_t temp = 0; // число
   uint8_t i = 0;
@@ -217,13 +217,13 @@ int32_t str_to_int( char *s )
   return ( temp );
 }
 
-/**************************************************************************************************
+/***************************************************************************************************
 Описание: Преобразование числа в строку
 Аргументы: value - число, которое преобразуем, buf - куда преобразуем
 Возврат:   Нет
 Замечания: Преобразуются только числа в формате "+xxxx" / "-xxxx"
 ***************************************************************************************************/
-void int_to_str( int16_t value, char buf[])
+void intToStr( int16_t value, char buf[])
 {
     if (value < 0) 
     { 
@@ -240,16 +240,16 @@ void int_to_str( int16_t value, char buf[])
     }
 }
 
-/**************************************************************************************************
+/***************************************************************************************************
 Описание: Проверка правильности задания скорости на годность.
 Аргументы: Нет
 Возврат:   Нет
 Замечания: 
 ***************************************************************************************************/
-void check_task_speed ( void )
+void checkTaskSpeed ( void )
 {
     int32_t task;
-    task = str_to_int( (char*)RX_BUF );
+    task = strToInt( (char*)rxBuf );
     
     if ( task >= MIN_SPEED && task <= MAX_SPEED)
     {
@@ -258,20 +258,140 @@ void check_task_speed ( void )
     systick_init( );
 }
 
+/***************************************************************************************************
+Глобальные функции
+***************************************************************************************************/
 
-/**************************************************************************************************
-Описание: Отправка текущего значения скорости в терминал.
+/***************************************************************************************************
+Описание: Инициализация SysTick
+Аргументы: Нет
+Возврат:   Нет
+Замечания: Смотреть описание SYSTICK_PRESCALER
+***************************************************************************************************/
+void systick_init ( void )
+{
+    // настройка приоритета прерываний SysTick
+    NVIC_InitTypeDef nvicInitStruct;
+    nvicInitStruct.NVIC_IRQChannel = SysTick_IRQn;
+    nvicInitStruct.NVIC_IRQChannelCmd = ENABLE;
+    nvicInitStruct.NVIC_IRQChannelPreemptionPriority = 0;
+    nvicInitStruct.NVIC_IRQChannelSubPriority = 0;
+    NVIC_Init( &nvicInitStruct );
+
+    SysTick_Config( SystemCoreClock/SYSTICK_PRESCALER ); 
+}
+
+/***************************************************************************************************
+Описание: Инициализация USART1
+Аргументы: Нет
+Возврат:   Нет
+Замечания: 
+***************************************************************************************************/
+void init_link_pc_uart( void )
+{
+    PC_LINK_UART_RCC_CMD(ENABLE);
+    
+    initUartPins();
+    
+    // конфигурирование UART
+    USART_InitTypeDef uartInitStruct;
+    USART_StructInit( &uartInitStruct );
+    uartInitStruct.USART_BaudRate = PC_LINK_UART_BR;
+    uartInitStruct.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+    USART_Init( PC_LINK_UART, &uartInitStruct );
+    
+    // настройка приоритета прерываний UART
+    NVIC_InitTypeDef nvicInitStruct;
+    nvicInitStruct.NVIC_IRQChannel = USART1_IRQn;
+    nvicInitStruct.NVIC_IRQChannelCmd = ENABLE;
+    nvicInitStruct.NVIC_IRQChannelPreemptionPriority = 1;
+    nvicInitStruct.NVIC_IRQChannelSubPriority = 0;
+    NVIC_Init( &nvicInitStruct );
+    
+    // запуск USART1
+    USART_Cmd( PC_LINK_UART, ENABLE );
+    USART_ITConfig( PC_LINK_UART, USART_IT_RXNE, ENABLE);
+    
+    // подключение DMA к USART1
+    USART_DMACmd( PC_LINK_UART, USART_DMAReq_Tx, ENABLE );
+    
+    // запуск DMA
+    RCC_AHBPeriphClockCmd( RCC_AHBPeriph_DMA1, ENABLE );
+}
+
+
+/***************************************************************************************************
+Описание: Отправка по UART на компьютер
+Аргументы: buf - массив символов, то что отправляем, len - длина массива
+Возврат:   Нет
+Замечания: 
+***************************************************************************************************/
+void send_to_pc( char* buf, uint32_t len )
+{
+    DMA_DeInit( DMA1_Channel4 );
+
+    DMA_InitTypeDef dmaInitStruct;
+    DMA_StructInit( &dmaInitStruct );
+    dmaInitStruct.DMA_BufferSize = len;
+    dmaInitStruct.DMA_MemoryBaseAddr = (uint32_t) buf;
+    dmaInitStruct.DMA_DIR = DMA_DIR_PeripheralDST;
+    dmaInitStruct.DMA_M2M = DMA_M2M_Disable;
+    dmaInitStruct.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte;
+    dmaInitStruct.DMA_MemoryInc = DMA_MemoryInc_Enable;
+    dmaInitStruct.DMA_Mode = DMA_Mode_Normal;
+    dmaInitStruct.DMA_PeripheralBaseAddr = (uint32_t) &(PC_LINK_UART->DR);
+    dmaInitStruct.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;
+    dmaInitStruct.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+    DMA_Init( DMA1_Channel4, &dmaInitStruct );
+
+    DMA_Cmd( DMA1_Channel4, ENABLE );
+}
+
+/***************************************************************************************************
+Описание: Отправка текущего значения скорости в терминал каждую секунду
 Аргументы: speed - текущее значение скорости с датчика
 Возврат:   Нет
 Замечания: 
 ***************************************************************************************************/
 void send_cur_speed( int16_t speed )
 {
-    int_to_str(speed, curSpeedStr);
-    send_to_pc(curSpeedStr, sizeof(curSpeedStr) - 1);
+    if ( delayMs(100) == true)
+    {
+        intToStr(speed, curSpeedStr);
+        send_to_pc(curSpeedStr, sizeof(curSpeedStr) - 1);
+    }
 }
 
-/**************************************************************************************************
+
+ /**************************************************************************************************
+Описание: Ввод значения пользователем
+Аргументы: Нет
+Возврат:   Нет
+Замечания: 
+***************************************************************************************************/
+
+void enter_task( void )
+{
+    if ( startSetTask == true )
+    {
+        startSetTask = false;
+        resetRxFlag();
+        systickStop();
+        send_to_pc( (char*)speedRequest, sizeof(speedRequest) - 1 );
+        
+        // ожидани завершения ввода задания
+        while ( checkRxFlag() == 0)
+        {;}
+        
+        resetRxFlag();
+        checkTaskSpeed();
+        
+        systickStart();
+        clearRxBuf();
+    }
+}
+
+/***************************************************************************************************
 Описание: Получение желаемого значения скорости.
 Аргументы: Нет
 Возврат:   Значение скорости, введенное пользователем
@@ -280,6 +400,17 @@ void send_cur_speed( int16_t speed )
 int16_t get_user_speed( void )
 {
     return userSpeed;
+}
+
+/***************************************************************************************************
+Описание: Прерывания по Systick
+Аргументы: Нет
+Возврат:   Нет
+Замечания: 
+***************************************************************************************************/
+void SysTick_Handler()
+{
+    timeStampMs++;
 }
 
  /**************************************************************************************************
@@ -295,24 +426,26 @@ int16_t get_user_speed( void )
     {     
         // Сохраняем принятый байт в RX_BUF
         RXc = USART_ReceiveData(USART1);
-        RX_BUF[RXi] = RXc;
+        rxBuf[RXi] = RXc;
         RXi++;
 
-        // Если не конец строки (т.е. нажали Enter)
+        // Если не конец строки - нажатие Enter)
         if ( RXc != 13 )
         {
-            // очистка буфера приема при переполнении
-            if (RXi > RX_BUF_SIZE) 
-                {
-                    clear_rx_buffer();
-                }
+            // Если из терминала в МК пришел символ 'b', то взводится флаг ввода задания
             if (RXc == 'b')
             {
-                RX_FLAG_END_LINE = 1;
+                startSetTask = 1;
+                clearRxBuf();
+            }
+            // очистка буфера приема при переполнении
+            if (RXi > RX_BUF_SIZE) 
+            {
+                clearRxBuf();
             }
         }
         else {
-            RX_FLAG_END_LINE = 1;
+            rxFlagEndLine = 1;
         }
         // Эхо-отклик - вывод в терминал полученного символа
          USART_SendData(USART1, RXc);

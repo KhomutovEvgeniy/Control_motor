@@ -12,17 +12,9 @@
 #include <stdio.h>
 #include "adc/adc.h"
 #include "debug/debug.h"
-#include "systick/systick.h"
 #include "motor_speed/motor_speed.h"
 #include "motor_voltage/motor_voltage.h"
 #include "control/control.h"
-
-/***************************************************************************************************
-Локальные переменные файла
-***************************************************************************************************/
-const char speedRequest[] = "\nEnter speed:'+xxxx' or '-xxxx':";
-
-// char message[] = "5";
 
 /***************************************************************************************************
 Глобальные функции
@@ -38,8 +30,6 @@ int main( void )
     
     systick_init();
     
-    pid_init( );
-
     static int16_t sensorSpeed = 0;
     
     static int16_t userSpeed = 0;
@@ -53,38 +43,18 @@ int main( void )
 
     while ( 1 )
     {
-        if ( check_rx_flag() == 1 )
-        {
-            reset_rx_flag();
-            SysTick->CTRL &= ~SysTick_CTRL_TICKINT; //Выключить прерывание от SysTick
-            send_to_pc( (char*)speedRequest, sizeof(speedRequest) - 1 );
-            clear_rx_buffer();
-            // Ожидание получения задания
-            while ( check_rx_flag() == 0)
-            {;}
-            
-            reset_rx_flag();
-            check_task_speed();
-            
-            systick_init();
-        }
+        enter_task();
          
         sensorSpeed = motor_speed_getSpeed( ); // Значение скорости с датчика мотора
         userSpeed = get_user_speed( ); // Желаемое значение
 
         mistake = userSpeed - sensorSpeed; // Ошибка управления
-        signal = control_run(mistake);
+        signal = control_run(mistake); // Управляющий сигнал с ПИДа
             
         motor_voltage_setVoltage(signal);
-        if ( delay_ms(1000) == true)
-        {
-            send_cur_speed( sensorSpeed );
-        }
-        clear_rx_buffer();
+        send_cur_speed(sensorSpeed);
     }
-    
-    // int16_t speed = get_cur_speed( );
-}
+ }
 
 
 #ifdef  USE_FULL_ASSERT
