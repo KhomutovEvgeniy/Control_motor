@@ -13,6 +13,8 @@
 /***************************************************************************************************
 Локальные дефайны
 ***************************************************************************************************/
+#define MAX_SPEED 2047
+#define MIN_SPEED -2048
 
 /***************************************************************************************************
 Локальные типы данных
@@ -22,9 +24,9 @@
 Локальные переменные файла
 ***************************************************************************************************/
 // Коэффициенты усиления ПИД-регулятора
-static float kP = 20;
-static float kI = 1;
-static float kD = 0.5;
+static float kP = 0.5;
+static float kI = 0;
+static float kD = 0;
 
 static uint16_t prevErr = 0;
 static uint16_t intTerm = 0;
@@ -40,13 +42,22 @@ static uint16_t intTerm = 0;
 Замечания: 
 ***************************************************************************************************/
 
-uint16_t control_run( int16_t err )
+int16_t control_run( int16_t err )
 {
-  uint16_t output;
-  intTerm += kI*err;
-  output = kP * err;
-  output += intTerm;
-  output += kD * (err - prevErr);
+    int16_t output;
+    intTerm += kI*err;
+    output = kP * err;
+    output += intTerm;
+    output += kD * (err - prevErr);
+
+    if ( output > MAX_SPEED )
+    {
+        output = MAX_SPEED;
+    }
+    else if ( output < MIN_SPEED )
+    {
+        output = MIN_SPEED;
+    }
 
   prevErr = err;
 

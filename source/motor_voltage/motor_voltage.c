@@ -39,7 +39,7 @@ void initPWM( void )
     TIM_TimeBaseStructInit(&timer);  
     
     //Настройка TIM1 на частоту 200Гц и направлением счета на возрастание
-    timer.TIM_Prescaler = 720 - 1;
+    timer.TIM_Prescaler = 100 - 1;
     timer.TIM_Period = PERIOD - 1;
     timer.TIM_ClockDivision = 0;
     timer.TIM_CounterMode = TIM_CounterMode_Up;
@@ -89,7 +89,7 @@ void motor_voltage_setVoltage(int16_t speed)
 {    
     int16_t pulseWidths = map(speed, -2048, 2047, -1000, 1000);
     
-    if ( pulseWidths > 0 )  
+    if ( pulseWidths >= 0 )  
     {
         GPIO_ResetBits(GPIOA, GPIO_Pin_11);
         TIM_SetCompare1(TIM1, pulseWidths);     
