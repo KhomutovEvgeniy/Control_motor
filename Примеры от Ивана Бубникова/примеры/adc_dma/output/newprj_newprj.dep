@@ -1,0 +1,244 @@
+Dependencies for Project 'newprj', Target 'newprj': (DO NOT MODIFY !)
+F (.\source\CMSIS\CM3\CoreSupport\core_cm3.c)(0x53E0B408)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I .\source\ -I .\source\CMSIS\CM3\CoreSupport -I .\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\source\STM32F10x_StdPeriph_Driver\inc -I .\source\STM32F10x_StdPeriph_Driver\src -I .\source\STM32F10x_StdPeriph_Driver --c99 --feedback=filename-I"C:\My programms\Keil\ARM\RV31\INC"-I"C:\My programms\Keil\ARM\CMSIS\Include"-I"C:\My programms\Keil\ARM\Inc\ST\STM32F10x"-D__UVISION_VERSION="523"-o .\output\core_cm3.o --omf_browse .\output\core_cm3.crf --depend .\output\core_cm3.d)
+I (C:\My programms\Keil\ARM\ARMCC\include\stdint.h)(0x57F64D08)
+F (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x53E0B40A)()
+F (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.c)(0x5BBA64BB)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I .\source\ -I .\source\CMSIS\CM3\CoreSupport -I .\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\source\STM32F10x_StdPeriph_Driver\inc -I .\source\STM32F10x_StdPeriph_Driver\src -I .\source\STM32F10x_StdPeriph_Driver --c99 --feedback=filename-I"C:\My programms\Keil\ARM\RV31\INC"-I"C:\My programms\Keil\ARM\CMSIS\Include"-I"C:\My programms\Keil\ARM\Inc\ST\STM32F10x"-D__UVISION_VERSION="523"-o .\output\system_stm32f10x.o --omf_browse .\output\system_stm32f10x.crf --depend .\output\system_stm32f10x.d)
+I (source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x53E0B40A)
+I (.\source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x53E0B408)
+I (C:\My programms\Keil\ARM\ARMCC\include\stdint.h)(0x57F64D08)
+I (source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\stm32f10x_conf.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x53E0B408)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x53E0B40A)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x53E0B408)
+F (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\arm\startup_stm32f10x_md.s)(0x53E0B408)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I"C:\My programms\Keil\ARM\RV31\INC"-I"C:\My programms\Keil\ARM\CMSIS\Include"-I"C:\My programms\Keil\ARM\Inc\ST\STM32F10x"--pd "__UVISION_VERSION SETA 523"--list .\output\startup_stm32f10x_md.lst --xref -o .\output\startup_stm32f10x_md.o --depend .\output\startup_stm32f10x_md.d)
+F (.\STM32DBG.ini)(0x00000000)()
+F (.\source\STM32F10x_StdPeriph_Driver\stm32f10x_conf.h)(0x53E0B408)()
+F (.\source\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c)(0x53E0B408)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I .\source\ -I .\source\CMSIS\CM3\CoreSupport -I .\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\source\STM32F10x_StdPeriph_Driver\inc -I .\source\STM32F10x_StdPeriph_Driver\src -I .\source\STM32F10x_StdPeriph_Driver --c99 --feedback=filename-I"C:\My programms\Keil\ARM\RV31\INC"-I"C:\My programms\Keil\ARM\CMSIS\Include"-I"C:\My programms\Keil\ARM\Inc\ST\STM32F10x"-D__UVISION_VERSION="523"-o .\output\stm32f10x_rcc.o --omf_browse .\output\stm32f10x_rcc.crf --depend .\output\stm32f10x_rcc.d)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x53E0B408)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x53E0B40A)
+I (.\source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x53E0B408)
+I (C:\My programms\Keil\ARM\ARMCC\include\stdint.h)(0x57F64D08)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\stm32f10x_conf.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x53E0B408)
+F (.\source\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c)(0x53E0B408)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I .\source\ -I .\source\CMSIS\CM3\CoreSupport -I .\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\source\STM32F10x_StdPeriph_Driver\inc -I .\source\STM32F10x_StdPeriph_Driver\src -I .\source\STM32F10x_StdPeriph_Driver --c99 --feedback=filename-I"C:\My programms\Keil\ARM\RV31\INC"-I"C:\My programms\Keil\ARM\CMSIS\Include"-I"C:\My programms\Keil\ARM\Inc\ST\STM32F10x"-D__UVISION_VERSION="523"-o .\output\stm32f10x_gpio.o --omf_browse .\output\stm32f10x_gpio.crf --depend .\output\stm32f10x_gpio.d)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x53E0B408)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x53E0B40A)
+I (.\source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x53E0B408)
+I (C:\My programms\Keil\ARM\ARMCC\include\stdint.h)(0x57F64D08)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\stm32f10x_conf.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x53E0B408)
+F (.\source\STM32F10x_StdPeriph_Driver\src\misc.c)(0x53E0B408)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I .\source\ -I .\source\CMSIS\CM3\CoreSupport -I .\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\source\STM32F10x_StdPeriph_Driver\inc -I .\source\STM32F10x_StdPeriph_Driver\src -I .\source\STM32F10x_StdPeriph_Driver --c99 --feedback=filename-I"C:\My programms\Keil\ARM\RV31\INC"-I"C:\My programms\Keil\ARM\CMSIS\Include"-I"C:\My programms\Keil\ARM\Inc\ST\STM32F10x"-D__UVISION_VERSION="523"-o .\output\misc.o --omf_browse .\output\misc.crf --depend .\output\misc.d)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x53E0B408)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x53E0B40A)
+I (.\source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x53E0B408)
+I (C:\My programms\Keil\ARM\ARMCC\include\stdint.h)(0x57F64D08)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\stm32f10x_conf.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x53E0B408)
+F (.\source\STM32F10x_StdPeriph_Driver\src\stm32f10x_tim.c)(0x53E0B408)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I .\source\ -I .\source\CMSIS\CM3\CoreSupport -I .\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\source\STM32F10x_StdPeriph_Driver\inc -I .\source\STM32F10x_StdPeriph_Driver\src -I .\source\STM32F10x_StdPeriph_Driver --c99 --feedback=filename-I"C:\My programms\Keil\ARM\RV31\INC"-I"C:\My programms\Keil\ARM\CMSIS\Include"-I"C:\My programms\Keil\ARM\Inc\ST\STM32F10x"-D__UVISION_VERSION="523"-o .\output\stm32f10x_tim.o --omf_browse .\output\stm32f10x_tim.crf --depend .\output\stm32f10x_tim.d)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x53E0B408)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x53E0B40A)
+I (.\source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x53E0B408)
+I (C:\My programms\Keil\ARM\ARMCC\include\stdint.h)(0x57F64D08)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\stm32f10x_conf.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x53E0B408)
+F (.\source\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c)(0x53E0B408)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I .\source\ -I .\source\CMSIS\CM3\CoreSupport -I .\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\source\STM32F10x_StdPeriph_Driver\inc -I .\source\STM32F10x_StdPeriph_Driver\src -I .\source\STM32F10x_StdPeriph_Driver --c99 --feedback=filename-I"C:\My programms\Keil\ARM\RV31\INC"-I"C:\My programms\Keil\ARM\CMSIS\Include"-I"C:\My programms\Keil\ARM\Inc\ST\STM32F10x"-D__UVISION_VERSION="523"-o .\output\stm32f10x_usart.o --omf_browse .\output\stm32f10x_usart.crf --depend .\output\stm32f10x_usart.d)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x53E0B408)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x53E0B40A)
+I (.\source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x53E0B408)
+I (C:\My programms\Keil\ARM\ARMCC\include\stdint.h)(0x57F64D08)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\stm32f10x_conf.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x53E0B408)
+F (.\source\STM32F10x_StdPeriph_Driver\src\stm32f10x_adc.c)(0x53E0B408)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I .\source\ -I .\source\CMSIS\CM3\CoreSupport -I .\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\source\STM32F10x_StdPeriph_Driver\inc -I .\source\STM32F10x_StdPeriph_Driver\src -I .\source\STM32F10x_StdPeriph_Driver --c99 --feedback=filename-I"C:\My programms\Keil\ARM\RV31\INC"-I"C:\My programms\Keil\ARM\CMSIS\Include"-I"C:\My programms\Keil\ARM\Inc\ST\STM32F10x"-D__UVISION_VERSION="523"-o .\output\stm32f10x_adc.o --omf_browse .\output\stm32f10x_adc.crf --depend .\output\stm32f10x_adc.d)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x53E0B408)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x53E0B40A)
+I (.\source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x53E0B408)
+I (C:\My programms\Keil\ARM\ARMCC\include\stdint.h)(0x57F64D08)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\stm32f10x_conf.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x53E0B408)
+F (.\source\STM32F10x_StdPeriph_Driver\src\stm32f10x_dma.c)(0x53E0B408)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I .\source\ -I .\source\CMSIS\CM3\CoreSupport -I .\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\source\STM32F10x_StdPeriph_Driver\inc -I .\source\STM32F10x_StdPeriph_Driver\src -I .\source\STM32F10x_StdPeriph_Driver --c99 --feedback=filename-I"C:\My programms\Keil\ARM\RV31\INC"-I"C:\My programms\Keil\ARM\CMSIS\Include"-I"C:\My programms\Keil\ARM\Inc\ST\STM32F10x"-D__UVISION_VERSION="523"-o .\output\stm32f10x_dma.o --omf_browse .\output\stm32f10x_dma.crf --depend .\output\stm32f10x_dma.d)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x53E0B408)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x53E0B40A)
+I (.\source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x53E0B408)
+I (C:\My programms\Keil\ARM\ARMCC\include\stdint.h)(0x57F64D08)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\stm32f10x_conf.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x53E0B408)
+F (.\source\STM32F10x_StdPeriph_Driver\src\stm32f10x_flash.c)(0x53E0B408)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I .\source\ -I .\source\CMSIS\CM3\CoreSupport -I .\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\source\STM32F10x_StdPeriph_Driver\inc -I .\source\STM32F10x_StdPeriph_Driver\src -I .\source\STM32F10x_StdPeriph_Driver --c99 --feedback=filename-I"C:\My programms\Keil\ARM\RV31\INC"-I"C:\My programms\Keil\ARM\CMSIS\Include"-I"C:\My programms\Keil\ARM\Inc\ST\STM32F10x"-D__UVISION_VERSION="523"-o .\output\stm32f10x_flash.o --omf_browse .\output\stm32f10x_flash.crf --depend .\output\stm32f10x_flash.d)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x53E0B408)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x53E0B40A)
+I (.\source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x53E0B408)
+I (C:\My programms\Keil\ARM\ARMCC\include\stdint.h)(0x57F64D08)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\stm32f10x_conf.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x53E0B408)
+F (.\source\STM32F10x_StdPeriph_Driver\src\stm32f10x_iwdg.c)(0x541301DE)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I .\source\ -I .\source\CMSIS\CM3\CoreSupport -I .\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\source\STM32F10x_StdPeriph_Driver\inc -I .\source\STM32F10x_StdPeriph_Driver\src -I .\source\STM32F10x_StdPeriph_Driver --c99 --feedback=filename-I"C:\My programms\Keil\ARM\RV31\INC"-I"C:\My programms\Keil\ARM\CMSIS\Include"-I"C:\My programms\Keil\ARM\Inc\ST\STM32F10x"-D__UVISION_VERSION="523"-o .\output\stm32f10x_iwdg.o --omf_browse .\output\stm32f10x_iwdg.crf --depend .\output\stm32f10x_iwdg.d)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x53E0B408)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x53E0B40A)
+I (.\source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x53E0B408)
+I (C:\My programms\Keil\ARM\ARMCC\include\stdint.h)(0x57F64D08)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\stm32f10x_conf.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x53E0B408)
+F (.\source\STM32F10x_StdPeriph_Driver\src\stm32f10x_exti.c)(0x53E0B408)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I .\source\ -I .\source\CMSIS\CM3\CoreSupport -I .\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\source\STM32F10x_StdPeriph_Driver\inc -I .\source\STM32F10x_StdPeriph_Driver\src -I .\source\STM32F10x_StdPeriph_Driver --c99 --feedback=filename-I"C:\My programms\Keil\ARM\RV31\INC"-I"C:\My programms\Keil\ARM\CMSIS\Include"-I"C:\My programms\Keil\ARM\Inc\ST\STM32F10x"-D__UVISION_VERSION="523"-o .\output\stm32f10x_exti.o --omf_browse .\output\stm32f10x_exti.crf --depend .\output\stm32f10x_exti.d)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x53E0B408)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x53E0B40A)
+I (.\source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x53E0B408)
+I (C:\My programms\Keil\ARM\ARMCC\include\stdint.h)(0x57F64D08)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\stm32f10x_conf.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x53E0B408)
+F (.\source\STM32F10x_StdPeriph_Driver\src\stm32f10x_spi.c)(0x53E0B408)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I .\source\ -I .\source\CMSIS\CM3\CoreSupport -I .\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\source\STM32F10x_StdPeriph_Driver\inc -I .\source\STM32F10x_StdPeriph_Driver\src -I .\source\STM32F10x_StdPeriph_Driver --c99 --feedback=filename-I"C:\My programms\Keil\ARM\RV31\INC"-I"C:\My programms\Keil\ARM\CMSIS\Include"-I"C:\My programms\Keil\ARM\Inc\ST\STM32F10x"-D__UVISION_VERSION="523"-o .\output\stm32f10x_spi.o --omf_browse .\output\stm32f10x_spi.crf --depend .\output\stm32f10x_spi.d)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x53E0B408)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x53E0B40A)
+I (.\source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x53E0B408)
+I (C:\My programms\Keil\ARM\ARMCC\include\stdint.h)(0x57F64D08)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\stm32f10x_conf.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x53E0B408)
+F (.\source\main.c)(0x5BCBAA82)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I .\source\ -I .\source\CMSIS\CM3\CoreSupport -I .\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\source\STM32F10x_StdPeriph_Driver\inc -I .\source\STM32F10x_StdPeriph_Driver\src -I .\source\STM32F10x_StdPeriph_Driver --c99 --feedback=filename-I"C:\My programms\Keil\ARM\RV31\INC"-I"C:\My programms\Keil\ARM\CMSIS\Include"-I"C:\My programms\Keil\ARM\Inc\ST\STM32F10x"-D__UVISION_VERSION="523"-o .\output\main.o --omf_browse .\output\main.crf --depend .\output\main.d)
+I (C:\My programms\Keil\ARM\ARMCC\include\stdint.h)(0x57F64D08)
+I (C:\My programms\Keil\ARM\ARMCC\include\stdbool.h)(0x57F64D08)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x53E0B40A)
+I (.\source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x53E0B408)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\stm32f10x_conf.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x53E0B408)
+I (C:\My programms\Keil\ARM\ARMCC\include\string.h)(0x57F64D08)
+I (C:\My programms\Keil\ARM\ARMCC\include\stdio.h)(0x57F64D08)
+I (source\adc/adc.h)(0x5BBE5DBB)
+F (.\source\macros.h)(0x53E0B408)()
+F (.\STM32DBG.ini)(0x00000000)()
+F (.\source\config.h)(0x54560608)()
+F (.\source\adc\adc.c)(0x5BC4E929)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I .\source\ -I .\source\CMSIS\CM3\CoreSupport -I .\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\source\STM32F10x_StdPeriph_Driver\inc -I .\source\STM32F10x_StdPeriph_Driver\src -I .\source\STM32F10x_StdPeriph_Driver --c99 --feedback=filename-I"C:\My programms\Keil\ARM\RV31\INC"-I"C:\My programms\Keil\ARM\CMSIS\Include"-I"C:\My programms\Keil\ARM\Inc\ST\STM32F10x"-D__UVISION_VERSION="523"-o .\output\adc.o --omf_browse .\output\adc.crf --depend .\output\adc.d)
+I (source\adc\adc.h)(0x5BBE5DBB)
+I (C:\My programms\Keil\ARM\ARMCC\include\stdint.h)(0x57F64D08)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x53E0B40A)
+I (.\source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x53E0B408)
+I (.\source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\stm32f10x_conf.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x53E0B408)
+I (.\source\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x53E0B408)
+I (C:\My programms\Keil\ARM\ARMCC\include\stdbool.h)(0x57F64D08)
+I (C:\My programms\Keil\ARM\ARMCC\include\string.h)(0x57F64D08)
+F (.\source\adc\adc.h)(0x5BBE5DBB)()
