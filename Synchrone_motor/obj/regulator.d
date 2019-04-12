@@ -1,0 +1,35 @@
+.\obj\regulator.o: src\main\regulator.c
+.\obj\regulator.o: src\main\regulator.h
+.\obj\regulator.o: C:\My programms\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\regulator.o: C:\My programms\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+.\obj\regulator.o: .\src\spl\inc\stm32f10x_gpio.h
+.\obj\regulator.o: .\src\mcu_support_package\inc\stm32f10x.h
+.\obj\regulator.o: .\src\cmsis\core_cm3.h
+.\obj\regulator.o: .\src\cmsis\cmsis_compiler.h
+.\obj\regulator.o: .\src\cmsis\cmsis_armcc.h
+.\obj\regulator.o: .\src\mcu_support_package\inc\system_stm32f10x.h
+.\obj\regulator.o: .\src\mcu_support_package\inc\stm32f10x_conf.h
+.\obj\regulator.o: .\src\spl\inc\stm32f10x_adc.h
+.\obj\regulator.o: .\src\mcu_support_package\inc\stm32f10x.h
+.\obj\regulator.o: .\src\spl\inc\stm32f10x_bkp.h
+.\obj\regulator.o: .\src\spl\inc\stm32f10x_can.h
+.\obj\regulator.o: .\src\spl\inc\stm32f10x_cec.h
+.\obj\regulator.o: .\src\spl\inc\stm32f10x_crc.h
+.\obj\regulator.o: .\src\spl\inc\stm32f10x_dac.h
+.\obj\regulator.o: .\src\spl\inc\stm32f10x_dbgmcu.h
+.\obj\regulator.o: .\src\spl\inc\stm32f10x_dma.h
+.\obj\regulator.o: .\src\spl\inc\stm32f10x_exti.h
+.\obj\regulator.o: .\src\spl\inc\stm32f10x_flash.h
+.\obj\regulator.o: .\src\spl\inc\stm32f10x_fsmc.h
+.\obj\regulator.o: .\src\spl\inc\stm32f10x_gpio.h
+.\obj\regulator.o: .\src\spl\inc\stm32f10x_i2c.h
+.\obj\regulator.o: .\src\spl\inc\stm32f10x_iwdg.h
+.\obj\regulator.o: .\src\spl\inc\stm32f10x_pwr.h
+.\obj\regulator.o: .\src\spl\inc\stm32f10x_rcc.h
+.\obj\regulator.o: .\src\spl\inc\stm32f10x_rtc.h
+.\obj\regulator.o: .\src\spl\inc\stm32f10x_sdio.h
+.\obj\regulator.o: .\src\spl\inc\stm32f10x_spi.h
+.\obj\regulator.o: .\src\spl\inc\stm32f10x_tim.h
+.\obj\regulator.o: .\src\spl\inc\stm32f10x_usart.h
+.\obj\regulator.o: .\src\spl\inc\stm32f10x_wwdg.h
+.\obj\regulator.o: .\src\spl\inc\misc.h
